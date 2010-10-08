@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{has_scope}
-  s.version = "0.5.0"
+  s.name = %q{has_sunspot_scope}
+  s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Jos\303\251 Valim"]
+  s.authors = ["Jos\303\251 Valim", "Sebastian Korfmann"]
   s.date = %q{2010-03-23}
-  s.description = %q{Maps controller filters to your resource scopes}
-  s.email = %q{contact@plataformatec.com.br}
+  s.description = %q{Forked from github.com/platformatec/has_scope - Slightly modified to map controller filters to your sunspot search (solr)}
+  s.email = %q{korfmann.sebastian@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
@@ -22,11 +22,11 @@ Gem::Specification.new do |s|
      "init.rb",
      "lib/has_scope.rb"
   ]
-  s.homepage = %q{http://github.com/plataformatec/has_scope}
+  s.homepage = %q{http://github.com/skorfmann/has_scope}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Maps controller filters to your resource scopes}
+  s.summary = %q{Forked from github.com/platformatec/has_scope - Slightly modified to map controller filters to your sunspot search (solr)}
   s.test_files = [
     "test/has_scope_test.rb",
      "test/test_helper.rb"
