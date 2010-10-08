@@ -119,7 +119,7 @@ module HasScope
 
       if call_scope && (value.present? || options[:allow_blank])
         current_scopes[key] = value
-        target = call_scope_by_type(options[:type], scope, target, value, options)
+        scope_return_values[scope] = call_scope_by_type(options[:type], scope, target, value, options)
       end
     end
 
@@ -181,6 +181,11 @@ module HasScope
   # Returns the scopes used in this action.
   def current_scopes
     @current_scopes ||= {}
+  end
+
+  # Returns the return-values of the applied scopes in this action.
+  def scope_return_values
+    @scope_return_values ||= {}
   end
 end
 
