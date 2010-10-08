@@ -1,4 +1,25 @@
-== HasScope
+== HasSunspotScope
+
+This fork works only for sunspot_rails and i have only used the block variants
+
+  class GraduationsController < ApplicationController
+
+    has_scope :query do |controller, search, value|
+      search.keywords(value)
+    end
+
+    has_scope :category do |controller, search, value|
+      search.with(:category_id, value)
+    end
+
+    def index
+      @search = Graduation.search do |search|
+        apply_scopes(search)
+        search.facet(:category_id, :exclude => scope_return_values[:category] #multi-facet search
+      end
+      @graduations = @search.results
+    end
+  end
 
 Has scope allows you to easily create controller filters based on your resources named scopes.
 Imagine the following model called graduations:
