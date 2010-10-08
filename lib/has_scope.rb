@@ -86,19 +86,19 @@ module HasScope
         self.scopes_configuration[scope].merge!(options)
       end
     end
-  end
 
-  def define_scope_helper_methods
-    scopes_configuration.keys.each do |scope|
-      instance_eval do
-        define_method "#{scope.to_s.singularize}_scope?" do
-          current_scopes.has_key?(scope.to_sym)
+    def define_scope_helper_methods
+      scopes_configuration.keys.each do |scope|
+        instance_eval do
+          define_method "#{scope.to_s.singularize}_scope?" do
+            current_scopes.has_key?(scope.to_sym)
+          end
         end
       end
+      helper_method *scopes_configuration.keys.map {|scope| "#{scope.to_s.singularize}_scope?" }
     end
-    helper_method *scopes_configuration.keys.map {|scope| "#{scope.to_s.singularize}_scope?" }
-  end
 
+  end
   protected
 
   # Receives an object where scopes will be applied to.
